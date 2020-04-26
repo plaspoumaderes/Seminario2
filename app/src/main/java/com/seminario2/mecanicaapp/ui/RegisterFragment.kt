@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.seminario2.mecanicaapp.R
@@ -54,7 +55,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                             }
                         }
 
-
+                    activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                     (activity as AppCompatActivity).replaceFragment(
                         MainFragment.newInstance(),
                         false
@@ -75,6 +76,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 //                    fr_register_passwd.text.toString().trim()
 //                )
 //            )
+            activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             (activity as AppCompatActivity).replaceFragment(
                 MainFragment.newInstance(),
                 false

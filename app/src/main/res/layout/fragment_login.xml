@@ -55,6 +55,7 @@
             android:id="@+id/fr_login_passwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:textColor="@color/black_letters"
             android:textSize="18sp" />
 
@@ -65,14 +66,14 @@
         android:id="@+id/fr_login_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/registrarse"
         android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/registrarse"
         android:textColor="@color/blue_logo"
         android:textSize="16sp"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fr_login_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fr_login_btn"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/fr_login_btn"
