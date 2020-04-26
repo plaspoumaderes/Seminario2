@@ -1,0 +1,2 @@
+rootProject.name='MecanicaApp'
+include ':app'

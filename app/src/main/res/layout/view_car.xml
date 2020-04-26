@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/v_car_marca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/marca"
+        android:textColor="@color/black_letters"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/v_car_modelo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/v_car_marca_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/black_letters"
+        app:layout_constraintEnd_toEndOf="@+id/v_car_marca"
+        app:layout_constraintStart_toStartOf="@+id/v_car_marca"
+        app:layout_constraintTop_toBottomOf="@+id/v_car_marca"
+        tools:text="Wolkswagen" />
+
+    <TextView
+        android:id="@+id/v_car_modelo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/modelo"
+        android:textColor="@color/black_letters"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/v_car_año"
+        app:layout_constraintStart_toEndOf="@+id/v_car_marca"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/v_car_modelo_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/black_letters"
+        app:layout_constraintEnd_toEndOf="@+id/v_car_modelo"
+        app:layout_constraintStart_toStartOf="@+id/v_car_modelo"
+        app:layout_constraintTop_toBottomOf="@+id/v_car_modelo"
+        tools:text="Gol" />
+
+    <TextView
+        android:id="@+id/v_car_año"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/año"
+        android:textColor="@color/black_letters"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/v_car_modelo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/v_car_año_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/black_letters"
+        app:layout_constraintEnd_toEndOf="@+id/v_car_año"
+        app:layout_constraintStart_toStartOf="@+id/v_car_año"
+        app:layout_constraintTop_toBottomOf="@+id/v_car_año"
+        tools:text="2009" />
+
+    <ImageView
+        android:id="@+id/v_car_marca_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_car_marca_value"
+        tools:src="@drawable/fiat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

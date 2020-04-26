@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">SIGA</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="acceder">Acceder</string>
+    <string name="marca">Marca</string>
+    <string name="año">Año</string>
+    <string name="modelo">Modelo</string>
+    <string name="pendiente">Pendiente</string>
+    <string name="revisando">Revisando</string>
+    <string name="working">En Progreso</string>
+    <string name="done">Listo</string>
+    <string name="name">Nombre</string>
+    <string name="lastname">Apellido</string>
+    <string name="registrarse">Registrarse</string>
+</resources>
