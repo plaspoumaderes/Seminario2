@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.seminario2.mecanicaapp.commons.constants.Constants
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
+import com.seminario2.mecanicaapp.ui.DashboardFragment
 import com.seminario2.mecanicaapp.ui.LoginFragment
 import com.seminario2.mecanicaapp.ui.MainFragment
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         getSharedPreferences(Constants.SIGA_PREFS, Context.MODE_PRIVATE)?.let {
             prefs = it
             if (it.contains(Constants.USER_ID)) {
-                replaceFragment(MainFragment.newInstance(), false)
+                replaceFragment(DashboardFragment.newInstance(), false)
             } else {
                 replaceFragment(LoginFragment.newInstance(), false)
             }

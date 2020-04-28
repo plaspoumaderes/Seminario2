@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.seminario2.mecanicaapp.R
+import com.seminario2.mecanicaapp.commons.extension.setImageCar
 import com.seminario2.mecanicaapp.model.Car
 import kotlinx.android.synthetic.main.view_car.view.*
 
@@ -36,16 +37,7 @@ class CarView : ConstraintLayout {
         v_car_marca_value.text = car.brand
         v_car_modelo_value.text = car.modelo
         v_car_año_value.text = car.year.toString()
-        setImage(car.brand)
-    }
-
-    private fun setImage(brand: String) {
-        val resources: Resources = context.resources
-        val resourceId: Int = resources.getIdentifier(
-            brand.toLowerCase(), "drawable",
-            context.packageName
-        )
-        v_car_marca_img.setImageDrawable(resources.getDrawable(resourceId))
+        v_car_marca_img.setImageCar(car.brand)
     }
 
 }

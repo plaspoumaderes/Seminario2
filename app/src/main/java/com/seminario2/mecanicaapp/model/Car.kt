@@ -1,3 +1,3 @@
 package com.seminario2.mecanicaapp.model
 
-class Car(val brand: String, val modelo: String, val year: Int)
+class Car(val brand: String, val modelo: String, val year: Int, var status: Int = 0)

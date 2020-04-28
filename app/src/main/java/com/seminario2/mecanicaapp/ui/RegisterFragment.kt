@@ -55,9 +55,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                             }
                         }
 
-                    activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    activity?.supportFragmentManager?.popBackStack(
+                        null,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    );
                     (activity as AppCompatActivity).replaceFragment(
-                        MainFragment.newInstance(),
+                        DashboardFragment.newInstance(),
                         false
                     )
                 } else {
@@ -76,11 +79,11 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 //                    fr_register_passwd.text.toString().trim()
 //                )
 //            )
-            activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            (activity as AppCompatActivity).replaceFragment(
-                MainFragment.newInstance(),
-                false
-            )
+            activity?.supportFragmentManager?.popBackStack(
+                null,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
+            );
+            (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
         }
     }
 

@@ -22,4 +22,6 @@
     <string name="name">Nombre</string>
     <string name="lastname">Apellido</string>
     <string name="registrarse">Registrarse</string>
+    <string name="hola_name">Hola %1$s</string>
+    <string name="cars">Autos</string>
 </resources>
