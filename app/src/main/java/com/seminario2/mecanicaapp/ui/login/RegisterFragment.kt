@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.seminario2.mecanicaapp.R
+import com.seminario2.mecanicaapp.SigaApplication
 import com.seminario2.mecanicaapp.commons.constants.Constants
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.model.LoginResponse
@@ -54,6 +55,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                                 apply()
                             }
                         }
+                    response.body()?.let {
+                        (activity?.application as SigaApplication).loginResponse = it
+                    }
                     activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                     (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
                 } else {
