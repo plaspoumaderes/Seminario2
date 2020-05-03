@@ -1,4 +1,4 @@
-package com.seminario2.mecanicaapp.ui.adapter
+package com.seminario2.mecanicaapp.ui.vehicles.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +9,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.commons.extension.setImageCar
-import com.seminario2.mecanicaapp.model.Car
+import com.seminario2.mecanicaapp.model.Vehicle
 
-class CarAdapter(val onClickAction: ((Car) -> Unit)) :
-    RecyclerView.Adapter<CarAdapter.MyViewHolder>() {
+class VehicleAdapter(val onClickAction: ((Vehicle) -> Unit)) :
+    RecyclerView.Adapter<VehicleAdapter.MyViewHolder>() {
 
-    private var mList: ArrayList<Car> = ArrayList()
+    private var mList: ArrayList<Vehicle> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false)
@@ -25,9 +25,9 @@ class CarAdapter(val onClickAction: ((Car) -> Unit)) :
         holder.mContainer.setOnClickListener {
             onClickAction(mList[position])
         }
-        holder.image.setImageCar(mList[position].brand)
-        holder.modelo.text = mList[position].modelo
-        holder.year.text = mList[position].year.toString()
+        holder.image.setImageCar(mList[position].vehicleBrand)
+        holder.modelo.text = mList[position].vehicleModel
+        holder.year.text = mList[position].vehicleYear.toString()
     }
 
 
@@ -42,7 +42,7 @@ class CarAdapter(val onClickAction: ((Car) -> Unit)) :
         return mList.count()
     }
 
-    fun updateItems(mList: java.util.ArrayList<Car>) {
+    fun updateItems(mList: ArrayList<Vehicle>) {
         this.mList = mList
         notifyDataSetChanged()
     }

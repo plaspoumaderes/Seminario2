@@ -35,10 +35,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/fr_dash_vehicles"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/default_margin"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="4dp"
                 android:text="@string/cars"
                 android:textColor="@color/black_letters" />
 
@@ -58,11 +62,65 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp"
-                android:minHeight="100dp"
+                android:minHeight="50dp"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_car" />
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fr_dash_garage_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:elevation="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_dash_car_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fr_dash_garage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:text="@string/talleres"
+                android:textColor="@color/black_letters" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:background="@color/grey_letters" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fr_dash_garage_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:minHeight="50dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_car" />
+
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 

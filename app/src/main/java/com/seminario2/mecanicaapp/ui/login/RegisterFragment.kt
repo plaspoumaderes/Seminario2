@@ -1,4 +1,4 @@
-package com.seminario2.mecanicaapp.ui
+package com.seminario2.mecanicaapp.ui.login
 
 import android.content.Context
 import android.os.Bundle
@@ -14,8 +14,8 @@ import com.seminario2.mecanicaapp.commons.constants.Constants
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.RegisterModel
+import com.seminario2.mecanicaapp.ui.DashboardFragment
 import com.seminario2.mecanicaapp.viewmodel.LoginViewModel
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Response
 
@@ -50,7 +50,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     activity?.getSharedPreferences(Constants.SIGA_PREFS, Context.MODE_PRIVATE)
                         ?.let {
                             it.edit().apply {
-                                putString(Constants.USER_ID, response.body()?.userId)
+                                putString(Constants.USER_ID, response.body()?.username)
                                 apply()
                             }
                         }

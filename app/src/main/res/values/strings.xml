@@ -22,7 +22,14 @@
     <string name="name">Nombre Completo</string>
     <string name="registrarse">Registrarse</string>
     <string name="hola_name">Hola %1$s</string>
-    <string name="cars">Autos</string>
+    <string name="cars">Mis Vehiculos</string>
     <string name="email">Email</string>
     <string name="address">Direccion</string>
+    <string name="patente">Patente</string>
+    <string name="tipo">Tipo</string>
+    <string name="color">Color</string>
+    <string name="chasis">Chasis</string>
+    <string name="engine">Engine</string>
+    <string name="add_vehicle">Agregar Vehiculo</string>
+    <string name="talleres">Talleres</string>
 </resources>

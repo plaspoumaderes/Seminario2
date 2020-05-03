@@ -6,7 +6,7 @@ import com.seminario2.mecanicaapp.model.LoginModel
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.RegisterModel
 import com.seminario2.mecanicaapp.services.APIClient
-import com.seminario2.mecanicaapp.services.APIInterface
+import com.seminario2.mecanicaapp.services.APILoginInterface
 import okhttp3.MediaType
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -15,7 +15,7 @@ import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
 
-    private var apiInterface: APIInterface? = APIClient.clientLogin?.create(APIInterface::class.java)
+    private var apiInterface: APILoginInterface? = APIClient.clientLogin?.create(APILoginInterface::class.java)
 
     val loginResponseMutable = MutableLiveData<Response<LoginResponse>>()
     val registerResponseMutable = MutableLiveData<Response<LoginResponse>>()

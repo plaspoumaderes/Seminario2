@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 
-interface APIInterface {
+interface APILoginInterface {
 
     companion object {
         var headersDefault = mapOf("Content-Type" to "application/json")
