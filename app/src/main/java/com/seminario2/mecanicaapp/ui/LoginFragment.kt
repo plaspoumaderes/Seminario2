@@ -51,7 +51,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 apply()
                             }
                         }
-                    (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
+                    (activity as AppCompatActivity).replaceFragment(
+                        DashboardFragment.newInstance(),
+                        false
+                    )
                 } else {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
                 }
@@ -60,13 +63,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun addListener() {
         fr_login_btn.setOnClickListener {
-            //            val user: String = fr_login_user.text.toString().trim()
-//            val passwd: String = fr_login_passwd.text.toString().trim()
-//            viewModel.login(user, passwd)
-            (activity as AppCompatActivity).replaceFragment(
-                DashboardFragment.newInstance(),
-                false
-            )
+            val user: String = fr_login_user.text.toString().trim()
+            val passwd: String = fr_login_passwd.text.toString().trim()
+            viewModel.login(user, passwd)
         }
         fr_login_register.setOnClickListener {
             (activity as AppCompatActivity).replaceFragment(RegisterFragment.newInstance())

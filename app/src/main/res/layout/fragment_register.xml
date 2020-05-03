@@ -28,20 +28,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fr_register_lastname_lay"
+        android:id="@+id/fr_register_email_lay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:hint="@string/lastname"
+        android:hint="@string/email"
         android:textColorHint="@color/grey_letters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fr_register_name_lay">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fr_register_lastname"
+            android:id="@+id/fr_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black_letters"
@@ -59,7 +59,7 @@
         android:textColorHint="@color/grey_letters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fr_register_lastname_lay">
+        app:layout_constraintTop_toBottomOf="@+id/fr_register_email_lay">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fr_register_user"
@@ -84,6 +84,28 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fr_register_passwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_letters"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fr_register_address_lay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/address"
+        android:textColorHint="@color/grey_letters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_register_passwd_lay">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fr_register_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black_letters"

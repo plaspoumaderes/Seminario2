@@ -19,9 +19,10 @@
     <string name="revisando">Revisando</string>
     <string name="working">En Progreso</string>
     <string name="done">Listo</string>
-    <string name="name">Nombre</string>
-    <string name="lastname">Apellido</string>
+    <string name="name">Nombre Completo</string>
     <string name="registrarse">Registrarse</string>
     <string name="hola_name">Hola %1$s</string>
     <string name="cars">Autos</string>
+    <string name="email">Email</string>
+    <string name="address">Direccion</string>
 </resources>

@@ -54,15 +54,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                                 apply()
                             }
                         }
-
-                    activity?.supportFragmentManager?.popBackStack(
-                        null,
-                        FragmentManager.POP_BACK_STACK_INCLUSIVE
-                    );
-                    (activity as AppCompatActivity).replaceFragment(
-                        DashboardFragment.newInstance(),
-                        false
-                    )
+                    activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
                 } else {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
                 }
@@ -71,19 +64,16 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun addListener() {
         fr_register_btn.setOnClickListener {
-            //            viewModel.register(
-//                RegisterModel(
-//                    fr_register_name.text.toString().trim(),
-//                    fr_register_lastname.text.toString().trim(),
-//                    fr_register_user.text.toString().trim(),
-//                    fr_register_passwd.text.toString().trim()
-//                )
-//            )
-            activity?.supportFragmentManager?.popBackStack(
-                null,
-                FragmentManager.POP_BACK_STACK_INCLUSIVE
-            );
-            (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
+            viewModel.register(
+                RegisterModel(
+                    fr_register_name.text.toString().trim(),
+                    fr_register_email.text.toString().trim(),
+                    fr_register_user.text.toString().trim(),
+                    fr_register_passwd.text.toString().trim(),
+                    fr_register_passwd.text.toString().trim(),
+                    fr_register_address.text.toString().trim()
+                )
+            )
         }
     }
 
