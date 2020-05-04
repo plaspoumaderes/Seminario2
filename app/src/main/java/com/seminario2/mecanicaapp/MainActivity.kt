@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.seminario2.mecanicaapp.commons.constants.Constants
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.model.LoginResponse
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             prefs = it
             if (it.contains(Constants.USER_ID)) {
                 it.getString(Constants.USER_ID, null)?.apply {
-                    (application as SigaApplication).loginResponse = LoginResponse(this)
+                    (application as SigaApplication).loginResponse = Gson().fromJson(this, LoginResponse::class.java)
                 }
                 replaceFragment(DashboardFragment.newInstance(), false)
             } else {

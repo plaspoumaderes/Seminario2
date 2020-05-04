@@ -17,6 +17,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/hola_name" />
 
+    <TextView
+        android:id="@+id/fr_dash_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/logout"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/fr_dash_car_card"
         android:layout_width="0dp"
@@ -40,11 +52,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:padding="4dp"
                 android:text="@string/cars"
-                android:textColor="@color/black_letters" />
+                android:textColor="@color/black_letters"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
@@ -93,11 +105,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:padding="4dp"
                 android:text="@string/talleres"
-                android:textColor="@color/black_letters" />
+                android:textColor="@color/black_letters"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"

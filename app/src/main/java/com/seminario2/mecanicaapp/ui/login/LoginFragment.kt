@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.gson.Gson
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.SigaApplication
 import com.seminario2.mecanicaapp.commons.constants.Constants
@@ -49,7 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     activity?.getSharedPreferences(Constants.SIGA_PREFS, Context.MODE_PRIVATE)
                         ?.let {
                             it.edit().apply {
-                                putString(Constants.USER_ID, response.body()?.username)
+                                putString(Constants.USER_ID, Gson().toJson(response.body()))
                                 apply()
                             }
                         }

@@ -1,5 +1,7 @@
 package com.seminario2.mecanicaapp.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,11 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.base.BaseFragment
+import com.seminario2.mecanicaapp.commons.constants.Constants
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.model.GarageModel
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.Vehicle
+import com.seminario2.mecanicaapp.splash.SplashActivity
 import com.seminario2.mecanicaapp.ui.garage.GarageAdapter
+import com.seminario2.mecanicaapp.ui.login.LoginFragment
 import com.seminario2.mecanicaapp.ui.vehicles.adapter.VehicleAdapter
 import com.seminario2.mecanicaapp.ui.vehicles.VehiclesFragment
 import com.seminario2.mecanicaapp.viewmodel.SigaViewModel
@@ -30,15 +35,15 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         viewModel.getVehiclesbyUserName(loginResponse)
         viewModel.getGarages()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fr_dash_name.text = getString(R.string.hola_name, loginResponse.username.toUpperCase())
+        fr_dash_name.text = getString(R.string.hola_name, loginResponse.fullName.toUpperCase())
         loadCars()
         loadGarage()
         addListener()
@@ -72,6 +77,19 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
     private fun addListener() {
         fr_dash_vehicles.setOnClickListener {
             (activity as AppCompatActivity).replaceFragment(VehiclesFragment.newInstance())
+        }
+        fr_dash_logout.setOnClickListener {
+            activity?.getSharedPreferences(Constants.SIGA_PREFS, Context.MODE_PRIVATE)
+                ?.let {
+                    it.edit().apply {
+                        putString(Constants.USER_ID, null)
+                        apply()
+                    }
+                }
+
+            val intent = Intent(activity, SplashActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
     }
 

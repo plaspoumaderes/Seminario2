@@ -7,5 +7,6 @@ class RegisterModel(
     var password: String,
     var password2: String,
     var address: String,
+    var cellphone: String = "",
     val isMechanic: Boolean = false
 )
