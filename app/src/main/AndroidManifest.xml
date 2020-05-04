@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/siga_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity">
         <activity
             android:name=".splash.SplashActivity"

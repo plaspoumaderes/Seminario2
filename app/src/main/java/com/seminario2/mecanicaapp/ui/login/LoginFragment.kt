@@ -12,7 +12,9 @@ import com.google.gson.Gson
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.SigaApplication
 import com.seminario2.mecanicaapp.commons.constants.Constants
+import com.seminario2.mecanicaapp.commons.extension.gone
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
+import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.ui.DashboardFragment
 import com.seminario2.mecanicaapp.viewmodel.LoginViewModel
@@ -60,6 +62,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         false
                     )
                 } else {
+                    fr_login_loading.gone()
                     Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
                 }
             })
@@ -67,6 +70,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun addListener() {
         fr_login_btn.setOnClickListener {
+            fr_login_loading.visible()
             val user: String = fr_login_user.text.toString().trim()
             val passwd: String = fr_login_passwd.text.toString().trim()
             viewModel.login(user, passwd)

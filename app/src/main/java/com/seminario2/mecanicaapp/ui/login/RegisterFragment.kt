@@ -13,7 +13,9 @@ import com.google.gson.Gson
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.SigaApplication
 import com.seminario2.mecanicaapp.commons.constants.Constants
+import com.seminario2.mecanicaapp.commons.extension.gone
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
+import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.RegisterModel
 import com.seminario2.mecanicaapp.ui.DashboardFragment
@@ -62,6 +64,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                     (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
                 } else {
+                    fr_reg_loading.gone()
                     Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
                 }
             })
@@ -69,6 +72,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun addListener() {
         fr_register_btn.setOnClickListener {
+            fr_reg_loading.visible()
             viewModel.register(
                 RegisterModel(
                     fr_register_name.text.toString().trim(),

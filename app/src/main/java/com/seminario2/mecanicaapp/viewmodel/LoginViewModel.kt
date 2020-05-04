@@ -51,7 +51,7 @@ class LoginViewModel : ViewModel() {
                     response: Response<LoginResponse?>
                 ) {
                     response.body()?.let { body ->
-                        loginResponseMutable.value = Response.success(body)
+                        registerResponseMutable.value = Response.success(body)
                     } ?: run {
                         responseError("Usuario y/o Contraseña invalida")
                     }

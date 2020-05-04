@@ -9,4 +9,6 @@
     <color name="black_letters">#333333</color>
     <color name="grey_letters">#666666</color>
 
+    <color name="alpha_loading">#40666666</color>
+
 </resources>
