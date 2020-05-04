@@ -1,6 +1,7 @@
 package com.seminario2.mecanicaapp.commons.extension
 
 import android.content.res.Resources
+import android.util.Log
 import android.widget.ImageView
 
 fun ImageView.setImageCar(brand: String) {
@@ -9,5 +10,9 @@ fun ImageView.setImageCar(brand: String) {
         brand.toLowerCase(), "drawable",
         context.packageName
     )
-    this.setImageDrawable(resources.getDrawable(resourceId))
+    try {
+        this.setImageDrawable(resources.getDrawable(resourceId))
+    } catch (e: Resources.NotFoundException) {
+        Log.i("Test", "NotFoundException -> $e")
+    }
 }

@@ -63,7 +63,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     )
                 } else {
                     fr_login_loading.gone()
-                    Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity, "Usuario y/o Contraseña invalida", Toast.LENGTH_LONG).show()
                 }
             })
     }
