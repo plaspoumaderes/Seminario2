@@ -53,17 +53,19 @@ class StatusCarView : ConstraintLayout {
             1 -> {
                 v_status_scanner.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-car-scan.json")
+                v_status_lottie.repeatCount = ValueAnimator.INFINITE
             }
             2 -> {
                 v_status_working.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-reparacion.json")
+                v_status_lottie.repeatCount = ValueAnimator.INFINITE
             }
             3 -> {
                 v_status_done.startAnimation(alphaAnimation)
-                v_status_lottie.setAnimation("lottie-notification.json")
+                v_status_lottie.setAnimation("lottie-ok.json")
+                v_status_lottie.setPadding(16,16,16,16)
             }
         }
-        v_status_lottie.repeatCount = ValueAnimator.INFINITE
-        v_status_lottie.playAnimation()
+        if (status > 0) v_status_lottie.playAnimation()
     }
 }

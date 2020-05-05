@@ -11,7 +11,6 @@ import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.ui.DashboardFragment
 import com.seminario2.mecanicaapp.ui.login.LoginFragment
 
-
 class MainActivity : AppCompatActivity() {
 
     private var prefs: SharedPreferences? = null
@@ -30,9 +29,17 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(LoginFragment.newInstance(), false)
             }
         }
-        //TODO falla servicio logina
-//        (application as SigaApplication).loginResponse = LoginResponse("a")
-//        replaceFragment(DashboardFragment.newInstance(), false)
+    }
+
+    fun logUser(body: LoginResponse) {
+        getSharedPreferences(Constants.SIGA_PREFS, Context.MODE_PRIVATE)?.let {
+            it.edit().apply {
+                putString(Constants.USER_ID, Gson().toJson(body))
+                apply()
+            }
+            }
+        (application as SigaApplication).loginResponse = body
+        replaceFragment(DashboardFragment.newInstance(), false)
     }
 
 }

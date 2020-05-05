@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.base.BaseFragment
 import com.seminario2.mecanicaapp.commons.constants.Constants
+import com.seminario2.mecanicaapp.commons.extension.gone
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
+import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.GarageModel
 import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.Vehicle
@@ -59,6 +61,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
                     } else {
                         vehicleAdapter.updateItems(ArrayList(it))
                     }
+                    showVisibilityVehicles(it.isNotEmpty())
                 }
             })
 
@@ -90,6 +93,16 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
             val intent = Intent(activity, SplashActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
+        }
+    }
+
+    private fun showVisibilityVehicles(hasVehicle: Boolean) {
+        if (hasVehicle) {
+            fr_dash_not_car.gone()
+            fr_dash_recycler.visible()
+        } else {
+            fr_dash_not_car.visible()
+            fr_dash_recycler.gone()
         }
     }
 

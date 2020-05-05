@@ -21,8 +21,8 @@
         android:id="@+id/fr_dash_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/default_margin"
         android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/logout"
         android:textColor="@color/black_letters"
         android:textSize="@dimen/title_size"
@@ -66,6 +66,16 @@
                 android:layout_marginEnd="@dimen/default_margin"
                 android:background="@color/grey_letters" />
 
+            <TextView
+                android:id="@+id/fr_dash_not_car"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@string/no_tiene_autos_cargados"
+                android:visibility="visible" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fr_dash_recycler"
                 android:layout_width="match_parent"
@@ -74,8 +84,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp"
-                android:minHeight="50dp"
                 android:nestedScrollingEnabled="false"
+                android:visibility="gone"
                 tools:listitem="@layout/item_car" />
 
         </LinearLayout>

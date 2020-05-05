@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 class SplashActivity : AppCompatActivity() {
 
     companion object {
-        const val SPLASH_DISPLAY_LENGTH: Long = 1000
+        const val SPLASH_DISPLAY_LENGTH: Long = 1500
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,14 +31,14 @@ class SplashActivity : AppCompatActivity() {
 
     fun rotateAnimation() {
         val rotate = RotateAnimation(
-            0f,
             180f,
+            0f,
             Animation.RELATIVE_TO_SELF,
             0.5f,
             Animation.RELATIVE_TO_SELF,
             0.5f
         )
-        rotate.duration = 3000
+        rotate.duration = SPLASH_DISPLAY_LENGTH
         rotate.interpolator = LinearInterpolator()
         splash_animation.startAnimation(rotate)
     }

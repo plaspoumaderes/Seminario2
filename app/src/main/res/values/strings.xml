@@ -33,4 +33,22 @@
     <string name="add_vehicle">Agregar Vehiculo</string>
     <string name="talleres">Talleres</string>
     <string name="logout">Logout</string>
+    <string name="no_tiene_autos_cargados">No tiene autos cargados</string>
+    <string name="error_reguster">Incompleto</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="error_login">Usuario y/o Contraseña invalida</string>
+
+    <string-array name="brand_array">
+        <item>Volkswagen</item>
+        <item>Renault</item>
+        <item>Peugeot</item>
+        <item>Ford</item>
+        <item>Fiat</item>
+    </string-array>
+
+    <string-array name="type_array">
+        <item>Auto</item>
+        <item>Moto</item>
+    </string-array>
+
 </resources>

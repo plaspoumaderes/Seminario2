@@ -2,6 +2,7 @@ package com.seminario2.mecanicaapp.ui.vehicles
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.base.BaseFragment
@@ -38,11 +39,11 @@ class VehicleAddFragment : BaseFragment(R.layout.fragment_vehicle_add) {
                 Vehicle(
                     loginResponse.userName,
                     fr_v_add_plate.text.toString().trim(),
-                    fr_v_add_brand.text.toString().trim(),
+                    fr_v_add_brand_lay.selectedItem.toString(),
                     fr_v_add_modelo.text.toString().trim(),
                     fr_v_add_year.text.toString().toInt(),
                     fr_v_add_color.text.toString().trim(),
-                    fr_v_add_type.text.toString().trim(),
+                    fr_v_add_type_lay.selectedItem.toString(),
                     fr_v_add_chasis.text.toString().trim(),
                     fr_v_add_engine.text.toString().trim(),
                     "", 0
