@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.base.BaseFragment
 import com.seminario2.mecanicaapp.commons.constants.Constants
@@ -15,14 +17,12 @@ import com.seminario2.mecanicaapp.commons.extension.gone
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.GarageModel
-import com.seminario2.mecanicaapp.model.LoginResponse
 import com.seminario2.mecanicaapp.model.Vehicle
 import com.seminario2.mecanicaapp.splash.SplashActivity
 import com.seminario2.mecanicaapp.ui.garage.GarageAdapter
-import com.seminario2.mecanicaapp.ui.login.LoginFragment
+import com.seminario2.mecanicaapp.ui.turn.CreateTurnFragment
 import com.seminario2.mecanicaapp.ui.vehicles.adapter.VehicleAdapter
 import com.seminario2.mecanicaapp.ui.vehicles.VehiclesFragment
-import com.seminario2.mecanicaapp.viewmodel.SigaViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Response
 
@@ -61,7 +61,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
                     } else {
                         vehicleAdapter.updateItems(ArrayList(it))
                     }
-                    showVisibilityVehicles(it.isNotEmpty())
+                    showVisibility(it.isNotEmpty(), fr_dash_recycler, fr_dash_not_car)
                 }
             })
 
@@ -73,6 +73,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
                     } else {
                         garageAdapter.updateItems(ArrayList(it))
                     }
+                    showVisibility(it.isNotEmpty(), fr_dash_garage_recycler, fr_dash_garage_not)
                 }
             })
     }
@@ -94,15 +95,18 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+        fr_dash_tab.searchListener = View.OnClickListener {
+            (activity as AppCompatActivity).replaceFragment(CreateTurnFragment.newInstance(), false)
+        }
     }
 
-    private fun showVisibilityVehicles(hasVehicle: Boolean) {
-        if (hasVehicle) {
-            fr_dash_not_car.gone()
-            fr_dash_recycler.visible()
+    private fun showVisibility(hasItems: Boolean, recycler: RecyclerView, textView: TextView) {
+        if (hasItems) {
+            textView.gone()
+            recycler.visible()
         } else {
-            fr_dash_not_car.visible()
-            fr_dash_recycler.gone()
+            textView.visible()
+            recycler.gone()
         }
     }
 

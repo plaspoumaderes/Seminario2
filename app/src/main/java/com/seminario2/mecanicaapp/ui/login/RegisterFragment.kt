@@ -80,7 +80,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun checkField(textInput: TextInputEditText): Boolean {
-        val incomplete = fr_register_name.text.toString().trim().isEmpty()
+        val incomplete = textInput.text.toString().trim().isEmpty()
         if (incomplete) {
             textInput.error = getString(R.string.error_reguster)
         } else {

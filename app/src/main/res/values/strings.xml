@@ -37,6 +37,21 @@
     <string name="error_reguster">Incompleto</string>
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="error_login">Usuario y/o Contraseña invalida</string>
+    <string name="detail_turn">Detalle del vehiculo</string>
+    <string name="reservar">Reservar</string>
+    <string name="vehiculos">Vehiculos</string>
+    <string name="kilometros">Kilometros</string>
+    <string name="necesidad">Necesidad</string>
+    <string name="taller">Taller</string>
+    <string name="horario">Horario</string>
+    <string name="detalles_adicionales">Detalles adicionales</string>
+    <string name="dia">dia</string>
+    <string name="no_tiene_talleres_cerca">No tiene talleres cerca</string>
+    <string name="inicio">Inicio</string>
+    <string name="buscar">Buscar</string>
+    <string name="search_garage">Buscar Taller</string>
+    <string name="km">Km</string>
+    <string name="select_garage">Seleccionar Garage</string>
 
     <string-array name="brand_array">
         <item>Volkswagen</item>
@@ -51,4 +66,13 @@
         <item>Moto</item>
     </string-array>
 
+    <string-array name="categories_array">
+        <item>Mecanica general</item>
+        <item>Mecanica ligera</item>
+        <item>Chapa y pintura</item>
+        <item>Cristales</item>
+        <item>Electricista</item>
+        <item>Cerrajeria</item>
+        <item>Gomeria</item>
+    </string-array>
 </resources>
