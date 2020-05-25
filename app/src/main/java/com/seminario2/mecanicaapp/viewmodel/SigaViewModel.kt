@@ -18,6 +18,7 @@ class SigaViewModel : ViewModel() {
     val vehicleResponseMutable = MutableLiveData<Response<List<Vehicle>>>()
     val garageResponseMutable = MutableLiveData<Response<List<GarageModel>>>()
     val addVehicleResponseMutable = MutableLiveData<Response<Vehicle>>()
+    val postInsertFixMutable = MutableLiveData<Response<FixModel>>()
 
     fun getVehiclesbyUserName(loginResponse: LoginResponse) {
         var call = apiInterface?.getVehiclesbyUserName(loginResponse)
@@ -76,6 +77,28 @@ class SigaViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<List<GarageModel>?>, t: Throwable) {
+                    responseError("No se encontraron vehiculos")
+                }
+            })
+        }
+    }
+
+    fun postInsertFix(fixModel: FixModel) {
+        var call = apiInterface?.postInsertFix(fixModel)
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<FixModel?> {
+                override fun onResponse(
+                    call: Call<FixModel?>,
+                    response: Response<FixModel?>
+                ) {
+                    response.body()?.let { body ->
+                        postInsertFixMutable.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron vehiculos")
+                    }
+                }
+
+                override fun onFailure(call: Call<FixModel?>, t: Throwable) {
                     responseError("No se encontraron vehiculos")
                 }
             })

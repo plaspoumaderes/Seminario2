@@ -37,6 +37,7 @@ class VehicleAddFragment : BaseFragment(R.layout.fragment_vehicle_add) {
         fr_v_add_btn.setOnClickListener {
             viewModel.insertVehicle(
                 Vehicle(
+                    null,
                     loginResponse.userName,
                     fr_v_add_plate.text.toString().trim(),
                     fr_v_add_brand_lay.selectedItem.toString(),

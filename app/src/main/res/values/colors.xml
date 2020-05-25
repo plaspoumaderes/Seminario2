@@ -8,6 +8,7 @@
     <color name="blue_logo">#002451</color>
     <color name="black_letters">#333333</color>
     <color name="grey_letters">#666666</color>
+    <color name="light_grey">#c0c0c0</color>
 
     <color name="alpha_loading">#40666666</color>
 

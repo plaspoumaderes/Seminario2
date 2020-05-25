@@ -18,6 +18,83 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/fr_sl_gar_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="24dp"
+        android:text="@string/taller"
+        android:textColor="@color/black_letters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_sl_gar_title" />
+
+    <Spinner
+        android:id="@+id/fr_sl_gar_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintBottom_toBottomOf="@id/fr_sl_gar_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fr_sl_gar_label"
+        app:layout_constraintTop_toTopOf="@+id/fr_sl_gar_label" />
+
+    <TextView
+        android:id="@+id/fr_sl_gar_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:textColor="@color/grey_letters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_sl_gar_label" />
+
+    <TextView
+        android:id="@+id/fr_sl_gar_dia_value"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/dia"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_sl_gar_address" />
+
+    <Spinner
+        android:id="@+id/fr_sl_gar_dia_value_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintBottom_toBottomOf="@id/fr_sl_gar_dia_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fr_sl_gar_dia_value"
+        app:layout_constraintTop_toTopOf="@+id/fr_sl_gar_dia_value" />
+
+    <ImageView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mapimage"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/fr_sl_gar_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fr_sl_gar_dia_value_spinner" />
 
     <TextView
         android:id="@+id/fr_sl_gar_btn"
@@ -29,7 +106,7 @@
         android:background="@drawable/oval_button"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/search_garage"
+        android:text="@string/agendar_turno"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -45,5 +122,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabActive="1" />
+
+
+
+    <FrameLayout
+        android:id="@+id/fr_sel_gar_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/alpha_loading"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,15 +45,25 @@
     <string name="taller">Taller</string>
     <string name="horario">Horario</string>
     <string name="detalles_adicionales">Detalles adicionales</string>
-    <string name="dia">dia</string>
+    <string name="dia">Día</string>
     <string name="no_tiene_talleres_cerca">No tiene talleres cerca</string>
     <string name="inicio">Inicio</string>
     <string name="buscar">Buscar</string>
     <string name="search_garage">Buscar Taller</string>
     <string name="km">Km</string>
     <string name="select_garage">Seleccionar Garage</string>
+    <string name="agendar_turno">Agendar turno</string>
+    <string name="volver_al_inicio">Volver al inicio</string>
+
+    <string name="lottie_success">check_animation.json</string>
+    <string name="lottie_error">error_animation.json</string>
+    <string name="create_turn_title">Turno creado</string>
+    <string name="create_turn_desc">Por favor si llega a cancelar antes de las 48hs</string>
+    <string name="gohome">Ir al Inicio</string>
+    <string name="entregado">Entregado</string>
 
     <string-array name="brand_array">
+        <item></item>
         <item>Volkswagen</item>
         <item>Renault</item>
         <item>Peugeot</item>
@@ -67,6 +77,7 @@
     </string-array>
 
     <string-array name="categories_array">
+        <item></item>
         <item>Mecanica general</item>
         <item>Mecanica ligera</item>
         <item>Chapa y pintura</item>

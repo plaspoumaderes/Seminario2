@@ -1,6 +1,7 @@
 package com.seminario2.mecanicaapp.model
 
 class Vehicle(
+    val _id: String? = null,
     val userName: String,
     val vehiclePlate: String,
     val vehicleBrand: String,

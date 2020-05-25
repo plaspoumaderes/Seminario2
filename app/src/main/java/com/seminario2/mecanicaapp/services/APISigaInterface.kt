@@ -1,9 +1,6 @@
 package com.seminario2.mecanicaapp.services
 
-import com.seminario2.mecanicaapp.model.GarageModel
-import com.seminario2.mecanicaapp.model.LoginModel
-import com.seminario2.mecanicaapp.model.LoginResponse
-import com.seminario2.mecanicaapp.model.Vehicle
+import com.seminario2.mecanicaapp.model.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,5 +25,8 @@ interface APISigaInterface {
 
     @POST("apiSIGA/getVehiclesbyUserName")
     fun getVehiclesbyUserName(@Body loginResponse: LoginResponse, @HeaderMap headers: Map<String, String> = headersDefault): Call<List<Vehicle>?>?
+
+    @POST("apiSIGA/insertFix")
+    fun postInsertFix(@Body fixModel: FixModel, @HeaderMap headers: Map<String, String> = headersDefault): Call<FixModel?>?
 
 }
