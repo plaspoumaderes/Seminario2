@@ -5,157 +5,240 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/fr_dash_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        android:textColor="@color/black_letters"
-        android:textSize="@dimen/title_size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/hola_name" />
-
-    <TextView
-        android:id="@+id/fr_dash_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:text="@string/logout"
-        android:textColor="@color/grey_letters"
-        android:textSize="12sp"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fr_dash_car_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:elevation="@dimen/default_margin"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/fr_dash_tab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fr_dash_name">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/fr_dash_vehicles"
-                android:layout_width="match_parent"
+                android:id="@+id/fr_dash_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:padding="4dp"
-                android:text="@string/cars"
                 android:textColor="@color/black_letters"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:background="@color/grey_letters" />
+                android:textSize="@dimen/title_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/hola_name" />
 
             <TextView
-                android:id="@+id/fr_dash_not_car"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center"
-                android:text="@string/no_tiene_autos_cargados"
-                android:visibility="visible" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/fr_dash_recycler"
-                android:layout_width="match_parent"
+                android:id="@+id/fr_dash_logout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:nestedScrollingEnabled="false"
-                android:visibility="gone"
-                tools:listitem="@layout/item_car" />
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:padding="8dp"
+                android:text="@string/logout"
+                android:textColor="@color/grey_letters"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fr_dash_garage_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:elevation="@dimen/default_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fr_dash_car_card">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/fr_dash_garage"
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fr_dash_car_card"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:padding="4dp"
-                android:text="@string/talleres"
-                android:textColor="@color/black_letters"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="@dimen/default_margin"
-                android:background="@color/grey_letters" />
+                android:elevation="@dimen/default_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_dash_name">
 
-            <TextView
-                android:id="@+id/fr_dash_garage_not"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center"
-                android:text="@string/no_tiene_talleres_cerca"
-                android:visibility="visible" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/fr_dash_garage_recycler"
-                android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/fr_dash_vehicles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:padding="4dp"
+                        android:text="@string/cars"
+                        android:textColor="@color/black_letters"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:background="@color/grey_letters" />
+
+                    <TextView
+                        android:id="@+id/fr_dash_not_car"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:gravity="center"
+                        android:text="@string/no_tiene_autos_cargados"
+                        android:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fr_dash_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="gone"
+                        tools:listitem="@layout/item_car" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fr_dash_garage_card"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:minHeight="50dp"
-                android:nestedScrollingEnabled="false"
-                android:visibility="gone"
-                tools:listitem="@layout/item_car" />
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:elevation="@dimen/default_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_dash_car_card">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/fr_dash_garage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:padding="4dp"
+                        android:text="@string/mis_servicios"
+                        android:textColor="@color/black_letters"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:background="@color/grey_letters" />
+
+                    <TextView
+                        android:id="@+id/fr_dash_services_not"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:gravity="center"
+                        android:text="@string/not_services"
+                        android:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fr_dash_services_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:minHeight="50dp"
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="gone"
+                        tools:listitem="@layout/item_car" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fr_dash_history_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:elevation="@dimen/default_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_dash_garage_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fr_dash_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:padding="4dp"
+                        android:text="@string/mi_historial"
+                        android:textColor="@color/black_letters"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:background="@color/grey_letters" />
+
+                    <TextView
+                        android:id="@+id/fr_dash_history_not"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:gravity="center"
+                        android:text="@string/serviecs_finish"
+                        android:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fr_dash_history_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:minHeight="50dp"
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="gone"
+                        tools:listitem="@layout/item_car" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
     <com.seminario2.mecanicaapp.view.TabView
         android:id="@+id/fr_dash_tab"

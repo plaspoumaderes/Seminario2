@@ -16,7 +16,9 @@ import com.seminario2.mecanicaapp.base.BaseFragment
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.FixModel
+import com.seminario2.mecanicaapp.model.GarageCategoryModel
 import com.seminario2.mecanicaapp.model.GarageModel
+import com.seminario2.mecanicaapp.ui.DashboardFragment
 import kotlinx.android.synthetic.main.fragment_create_turn.*
 import kotlinx.android.synthetic.main.fragment_select_garage.*
 import java.util.*
@@ -27,8 +29,8 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
     private lateinit var fixModel: FixModel
     private var garageList: List<GarageModel> = ArrayList()
     private var garageSelected: GarageModel? = null
-    private lateinit var date: OnDateSetListener
-    private lateinit var myCalendar: Calendar
+    private var date: OnDateSetListener? = null
+    private var myCalendar: Calendar? = null
 
     companion object {
         const val FIX_MODEL = "fix-model-key"
@@ -50,6 +52,11 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val array = ArrayList<Int>().apply { this.add(fixModel.fixStatusNumber) }
+        viewModel.getGaragesByCategory(GarageCategoryModel(array, loginResponse.address))
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configurateCalendar()
@@ -58,7 +65,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
     }
 
     private fun addObservable() {
-        viewModel.garageResponseMutable.observe(viewLifecycleOwner,
+        viewModel.garageByCategoriaResponseMutable.observe(viewLifecycleOwner,
             Observer { response ->
                 response.body()?.let { mList ->
                     garageList = mList
@@ -75,24 +82,26 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
             })
 
         viewModel.postInsertFixMutable.observe(viewLifecycleOwner,
-        Observer {
-            (activity as AppCompatActivity).replaceFragment(
-                CreateTurnSuccessFragment.newInstance(),
-                false
-            )
-        })
+            Observer {
+                (activity as AppCompatActivity).replaceFragment(
+                    CreateTurnSuccessFragment.newInstance(),
+                    false
+                )
+            })
     }
 
     fun addListener() {
         fr_sl_gar_dia_value.setOnClickListener {
             activity?.let { act ->
-                DatePickerDialog(
-                    act,
-                    date,
-                    myCalendar.get(Calendar.YEAR),
-                    myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)
-                ).show()
+                myCalendar?.let { calendar ->
+                    DatePickerDialog(
+                        act,
+                        date,
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)
+                    ).show()
+                }
             }
         }
         fr_sl_gar_spinner.onItemSelectedListener = object : OnItemSelectedListener {
@@ -115,20 +124,26 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
                 // your code here
             }
         }
+
         fr_sl_gar_btn.setOnClickListener {
             viewModel.postInsertFix(fixModel)
+        }
+
+        fr_sl_gar_tab.homeListener = View.OnClickListener {
+            (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
         }
     }
 
     private fun configurateCalendar() {
-        myCalendar = Calendar.getInstance()
-        date = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, monthOfYear)
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            fr_sl_gar_dia_value.text = "$dayOfMonth/$monthOfYear"
-            fixModel.fixIngress = myCalendar.time
-            showHourSpinner()
+        myCalendar = Calendar.getInstance().apply {
+            date = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                this.set(Calendar.YEAR, year)
+                this.set(Calendar.MONTH, monthOfYear)
+                this.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                fr_sl_gar_dia_value.text = "$dayOfMonth/$monthOfYear"
+                fixModel.fixIngress = this.time
+                showHourSpinner()
+            }
         }
     }
 

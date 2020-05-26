@@ -118,6 +118,7 @@
             android:text="@string/detalles_adicionales"
             android:textColor="@color/black_letters"
             android:textSize="@dimen/input_size"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fr_cr_turn_necesidad" />
 
@@ -131,6 +132,7 @@
             android:layout_marginBottom="32dp"
             android:gravity="top"
             android:inputType="text|textMultiLine"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fr_cr_turn_detail" />

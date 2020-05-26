@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.seminario2.mecanicaapp.R
+import com.seminario2.mecanicaapp.base.BaseFragment
 import com.seminario2.mecanicaapp.commons.extension.gone
 import kotlinx.android.synthetic.main.fragment_base_response.*
 
-abstract class BaseResponseFragment : Fragment(R.layout.fragment_base_response) {
+abstract class BaseResponseFragment : BaseFragment(R.layout.fragment_base_response) {
 
     enum class Status {
         SUCCESS,

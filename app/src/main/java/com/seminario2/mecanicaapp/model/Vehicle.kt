@@ -13,4 +13,8 @@ class Vehicle(
     val vehicleEngineSN: String,
     val vehiclePhoto: String = "",
     var status: Int = 0
-)
+) {
+    override fun toString(): String {
+        return "$vehicleModel ( $vehiclePlate )"
+    }
+}

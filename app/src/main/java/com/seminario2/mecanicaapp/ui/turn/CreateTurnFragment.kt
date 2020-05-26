@@ -16,7 +16,9 @@ import com.seminario2.mecanicaapp.base.BaseFragment
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.model.FixModel
 import com.seminario2.mecanicaapp.model.Vehicle
+import com.seminario2.mecanicaapp.ui.DashboardFragment
 import kotlinx.android.synthetic.main.fragment_create_turn.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlin.collections.ArrayList
 
 class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
@@ -93,7 +95,9 @@ class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
         })
-
+        fr_cr_turn_tab.homeListener = View.OnClickListener {
+            (activity as AppCompatActivity).replaceFragment(DashboardFragment.newInstance(), false)
+        }
     }
 
     private fun checkFields(): Boolean {

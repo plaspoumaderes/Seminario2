@@ -14,11 +14,14 @@ import retrofit2.Response
 
 class SigaViewModel : ViewModel() {
 
-    private var apiInterface: APISigaInterface? = APIClient.clientSiga?.create(APISigaInterface::class.java)
+    private var apiInterface: APISigaInterface? =
+        APIClient.clientSiga?.create(APISigaInterface::class.java)
     val vehicleResponseMutable = MutableLiveData<Response<List<Vehicle>>>()
     val garageResponseMutable = MutableLiveData<Response<List<GarageModel>>>()
+    val garageByCategoriaResponseMutable = MutableLiveData<Response<List<GarageModel>>>()
     val addVehicleResponseMutable = MutableLiveData<Response<Vehicle>>()
-    val postInsertFixMutable = MutableLiveData<Response<FixModel>>()
+    var postInsertFixMutable = MutableLiveData<Response<FixModelResponse>>()
+    var getListFixMutable = MutableLiveData<Response<List<FixModelResponse>>>()
 
     fun getVehiclesbyUserName(loginResponse: LoginResponse) {
         var call = apiInterface?.getVehiclesbyUserName(loginResponse)
@@ -68,9 +71,33 @@ class SigaViewModel : ViewModel() {
         var call = apiInterface?.getGarages()
         call?.let { callResponse ->
             callResponse.enqueue(object : Callback<List<GarageModel>?> {
-                override fun onResponse(call: Call<List<GarageModel>?>, response: Response<List<GarageModel>?>) {
+                override fun onResponse(
+                    call: Call<List<GarageModel>?>,
+                    response: Response<List<GarageModel>?>
+                ) {
                     response.body()?.let { body ->
                         garageResponseMutable.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron vehiculos")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<GarageModel>?>, t: Throwable) {
+                    responseError("No se encontraron vehiculos")
+                }
+            })
+        }
+    }
+    fun getGaragesByCategory(garageCategory: GarageCategoryModel) {
+        var call = apiInterface?.getGaragesByCategory(garageCategory)
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<List<GarageModel>?> {
+                override fun onResponse(
+                    call: Call<List<GarageModel>?>,
+                    response: Response<List<GarageModel>?>
+                ) {
+                    response.body()?.let { body ->
+                        garageByCategoriaResponseMutable.value = Response.success(body)
                     } ?: run {
                         responseError("No se encontraron vehiculos")
                     }
@@ -86,10 +113,10 @@ class SigaViewModel : ViewModel() {
     fun postInsertFix(fixModel: FixModel) {
         var call = apiInterface?.postInsertFix(fixModel)
         call?.let { callResponse ->
-            callResponse.enqueue(object : Callback<FixModel?> {
+            callResponse.enqueue(object : Callback<FixModelResponse?> {
                 override fun onResponse(
-                    call: Call<FixModel?>,
-                    response: Response<FixModel?>
+                    call: Call<FixModelResponse?>,
+                    response: Response<FixModelResponse?>
                 ) {
                     response.body()?.let { body ->
                         postInsertFixMutable.value = Response.success(body)
@@ -98,8 +125,30 @@ class SigaViewModel : ViewModel() {
                     }
                 }
 
-                override fun onFailure(call: Call<FixModel?>, t: Throwable) {
+                override fun onFailure(call: Call<FixModelResponse?>, t: Throwable) {
                     responseError("No se encontraron vehiculos")
+                }
+            })
+        }
+    }
+
+    fun getFixesby(loginResponse: LoginResponse) {
+        var call = apiInterface?.getFixes(UserNameModel(loginResponse.userName))
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<List<FixModelResponse>?> {
+                override fun onResponse(
+                    call: Call<List<FixModelResponse>?>,
+                    response: Response<List<FixModelResponse>?>
+                ) {
+                    response.body()?.let { body ->
+                        getListFixMutable.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron reparaciones")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<FixModelResponse>?>, t: Throwable) {
+                    responseError("No se encontraron reparaciones")
                 }
             })
         }

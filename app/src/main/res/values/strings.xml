@@ -61,6 +61,10 @@
     <string name="create_turn_desc">Por favor si llega a cancelar antes de las 48hs</string>
     <string name="gohome">Ir al Inicio</string>
     <string name="entregado">Entregado</string>
+    <string name="mis_servicios">Mis Servicios</string>
+    <string name="not_services">No tiene servicios agendados</string>
+    <string name="serviecs_finish">No tiene servicios realizados</string>
+    <string name="mi_historial">Mi Historial</string>
 
     <string-array name="brand_array">
         <item></item>

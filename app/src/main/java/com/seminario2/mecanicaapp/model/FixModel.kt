@@ -13,5 +13,5 @@ data class FixModel(
     var fixBudget: Int = 0,
     var fixFinalPrice: Int = 0,
     var fixStatus: String? = null,
-    var fixStatusNumber: String? = null
+    var fixStatusNumber: Int = 1
 )

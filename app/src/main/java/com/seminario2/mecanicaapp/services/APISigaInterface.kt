@@ -15,18 +15,44 @@ interface APISigaInterface {
     }
 
     @GET("apiSIGA/getGarages")
-    fun getGarages(@HeaderMap headers: Map<String, String> = headersDefault): Call<List<GarageModel>?>?
+    fun getGarages(
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<List<GarageModel>?>?
+
+    @POST("apiSIGA/getGaragesByCategory")
+    fun getGaragesByCategory(
+        @Body garageCategoryModel: GarageCategoryModel,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<List<GarageModel>?>?
 
     @POST("apiSIGA/getGaragesbyName")
-    fun getGaragesbyName(@Body garageModel: GarageModel, @HeaderMap headers: Map<String, String> = headersDefault): Call<GarageModel?>?
+    fun getGaragesbyName(
+        @Body garageModel: GarageModel,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<GarageModel?>?
 
     @POST("apiSIGA/insertVehicle")
-    fun postInsertVehicle(@Body vehicle: Vehicle, @HeaderMap headers: Map<String, String> = headersDefault): Call<Vehicle?>?
+    fun postInsertVehicle(
+        @Body vehicle: Vehicle,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<Vehicle?>?
 
     @POST("apiSIGA/getVehiclesbyUserName")
-    fun getVehiclesbyUserName(@Body loginResponse: LoginResponse, @HeaderMap headers: Map<String, String> = headersDefault): Call<List<Vehicle>?>?
+    fun getVehiclesbyUserName(
+        @Body loginResponse: LoginResponse,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<List<Vehicle>?>?
 
     @POST("apiSIGA/insertFix")
-    fun postInsertFix(@Body fixModel: FixModel, @HeaderMap headers: Map<String, String> = headersDefault): Call<FixModel?>?
+    fun postInsertFix(
+        @Body fixModel: FixModel,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<FixModelResponse?>?
+
+    @POST("apiSIGA/getFixesbyField")
+    fun getFixes(
+        @Body userNameModel: UserNameModel,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<List<FixModelResponse>?>?
 
 }
