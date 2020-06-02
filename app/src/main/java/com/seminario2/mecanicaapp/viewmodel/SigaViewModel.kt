@@ -22,6 +22,7 @@ class SigaViewModel : ViewModel() {
     val addVehicleResponseMutable = MutableLiveData<Response<Vehicle>>()
     var postInsertFixMutable = MutableLiveData<Response<FixModelResponse>>()
     var getListFixMutable = MutableLiveData<Response<List<FixModelResponse>>>()
+    var postComment = MutableLiveData<Response<Comment>>()
 
     fun getVehiclesbyUserName(loginResponse: LoginResponse) {
         var call = apiInterface?.getVehiclesbyUserName(loginResponse)
@@ -88,6 +89,7 @@ class SigaViewModel : ViewModel() {
             })
         }
     }
+
     fun getGaragesByCategory(garageCategory: GarageCategoryModel) {
         var call = apiInterface?.getGaragesByCategory(garageCategory)
         call?.let { callResponse ->
@@ -148,6 +150,28 @@ class SigaViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<List<FixModelResponse>?>, t: Throwable) {
+                    responseError("No se encontraron reparaciones")
+                }
+            })
+        }
+    }
+
+    fun postComment(comment: Comment) {
+        var call = apiInterface?.postComment(comment)
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<Comment?> {
+                override fun onResponse(
+                    call: Call<Comment?>,
+                    response: Response<Comment?>
+                ) {
+                    response.body()?.let { body ->
+                        postComment.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron reparaciones")
+                    }
+                }
+
+                override fun onFailure(call: Call<Comment?>, t: Throwable) {
                     responseError("No se encontraron reparaciones")
                 }
             })

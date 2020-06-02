@@ -55,4 +55,9 @@ interface APISigaInterface {
         @HeaderMap headers: Map<String, String> = headersDefault
     ): Call<List<FixModelResponse>?>?
 
+    @POST("apiSIGA/insertComment")
+    fun postComment(
+        @Body comment: Comment,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<Comment?>?
 }

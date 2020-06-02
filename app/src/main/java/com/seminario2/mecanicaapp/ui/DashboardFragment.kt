@@ -20,6 +20,7 @@ import com.seminario2.mecanicaapp.model.FixModelResponse
 import com.seminario2.mecanicaapp.model.GarageModel
 import com.seminario2.mecanicaapp.model.Vehicle
 import com.seminario2.mecanicaapp.splash.SplashActivity
+import com.seminario2.mecanicaapp.ui.garage.EvaluateFragment
 import com.seminario2.mecanicaapp.ui.turn.CreateTurnFragment
 import com.seminario2.mecanicaapp.ui.turn.ServicesAdapter
 import com.seminario2.mecanicaapp.ui.vehicles.adapter.VehicleAdapter
@@ -105,7 +106,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
                             if (it._id == fix.vehicleId[0])
                                 fix.vehicle = it
                         }
-                        if (fix.fixStatusNumber == 5) {
+                        if (fix.fixStatusNumber >= 5) {
                             historyList.add(fix)
                         } else {
                             servicesList.add(fix)
@@ -172,9 +173,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
     }
 
     private fun loadCars() {
-        vehicleAdapter = VehicleAdapter { car ->
-            (activity as AppCompatActivity).replaceFragment(MainFragment.newInstance(car))
-        }
+        vehicleAdapter = VehicleAdapter { car -> Log.i(this.javaClass.name, car.toString()) }
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         fr_dash_recycler.isNestedScrollingEnabled = false
         fr_dash_recycler.layoutManager = layoutManager
@@ -184,7 +183,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
     fun loadServices() {
         servicesAdapter = ServicesAdapter { ser ->
-            Log.i("test", "Services -> $ser")
+            (activity as AppCompatActivity).replaceFragment(MainFragment.newInstance(ser))
         }
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         fr_dash_services_recycler.isNestedScrollingEnabled = false
@@ -193,7 +192,11 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
 
         historyServices = ServicesAdapter { ser ->
-            Log.i("test", "Services -> $ser")
+            if (ser.fixStatusNumber == 5) {
+                ser.garage?.let {
+                    (activity as AppCompatActivity).replaceFragment(EvaluateFragment.newInstance(it))
+                }
+            }
         }
         val layoutManagerHistory = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         fr_dash_history_recycler.isNestedScrollingEnabled = false

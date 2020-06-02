@@ -25,9 +25,7 @@
     <string name="cars">Mis Vehiculos</string>
     <string name="email">Email</string>
     <string name="address">Direccion</string>
-    <string name="patente">Patente</string>
     <string name="tipo">Tipo</string>
-    <string name="color">Color</string>
     <string name="chasis">Chasis</string>
     <string name="engine">Engine</string>
     <string name="add_vehicle">Agregar Vehiculo</string>
@@ -65,6 +63,10 @@
     <string name="not_services">No tiene servicios agendados</string>
     <string name="serviecs_finish">No tiene servicios realizados</string>
     <string name="mi_historial">Mi Historial</string>
+    <string name="evaluar">Evaluar</string>
+    <string name="patente">Patente</string>
+    <string name="type">Tipo</string>
+    <string name="color">Color</string>
 
     <string-array name="brand_array">
         <item></item>

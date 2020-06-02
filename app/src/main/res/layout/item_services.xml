@@ -22,19 +22,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:ellipsize="end"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_services_garage_name"
         app:layout_constraintTop_toTopOf="@+id/item_services_garage_name"
         tools:text="Parana 1543" />
 
+    <ImageView
+        android:id="@+id/item_services_car_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_services_car"
+        app:layout_constraintStart_toStartOf="@id/item_services_garage_name"
+        app:layout_constraintTop_toTopOf="@+id/item_services_car" />
+
     <TextView
         android:id="@+id/item_services_car"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/item_services_garage_name"
+        app:layout_constraintEnd_toStartOf="@+id/item_services_day"
+        app:layout_constraintStart_toEndOf="@+id/item_services_car_image"
         app:layout_constraintTop_toBottomOf="@+id/item_services_garage_name"
         tools:text="Gol (ABC 123) - Pendiente" />
 
@@ -49,13 +61,23 @@
         app:layout_constraintTop_toTopOf="@+id/item_services_car"
         tools:text="22/06 22hs" />
 
+    <ImageView
+        android:id="@+id/item_services_noti"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/circle"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/item_services_sep"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/light_grey"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

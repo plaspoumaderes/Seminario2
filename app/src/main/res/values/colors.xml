@@ -11,5 +11,6 @@
     <color name="light_grey">#c0c0c0</color>
 
     <color name="alpha_loading">#40666666</color>
+    <color name="yellow">#ffff00</color>
 
 </resources>

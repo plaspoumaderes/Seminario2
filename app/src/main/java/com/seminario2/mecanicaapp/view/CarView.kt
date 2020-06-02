@@ -36,6 +36,9 @@ class CarView : ConstraintLayout {
         v_car_marca_value.text = vehicle.vehicleBrand
         v_car_modelo_value.text = vehicle.vehicleModel
         v_car_año_value.text = vehicle.vehicleYear.toString()
+        v_car_plate_value.text = vehicle.vehiclePlate
+        v_car_type_value.text = vehicle.vehicleType
+        v_car_color_value.text = vehicle.vehicleColor
         v_car_marca_img.setImageCar(vehicle.vehicleBrand)
     }
 
