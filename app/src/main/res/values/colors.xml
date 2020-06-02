@@ -13,4 +13,8 @@
     <color name="alpha_loading">#40666666</color>
     <color name="yellow">#ffff00</color>
 
+    <color name="success">#04A360</color>
+    <color name="warning">#EFB50A</color>
+    <color name="error">#B30300</color>
+
 </resources>

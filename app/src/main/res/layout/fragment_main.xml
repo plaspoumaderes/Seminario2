@@ -9,10 +9,7 @@
         android:id="@+id/fr_main_car"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="16dp"
+        android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,13 +18,91 @@
         android:id="@+id/fr_main_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="16dp"
+        android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fr_main_car" />
 
+    <TextView
+        android:id="@+id/fr_main_ingress"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/fecha_de_ingreso"
+        android:textColor="@color/grey_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_main_status" />
+
+    <TextView
+        android:id="@+id/fr_main_ingress_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fr_main_ingress"
+        app:layout_constraintTop_toTopOf="@+id/fr_main_ingress"
+        tools:text="@string/fecha_de_ingreso" />
+
+    <TextView
+        android:id="@+id/fr_main_egress"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/fecha_de_egress"
+        android:textColor="@color/grey_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_main_ingress" />
+
+    <TextView
+        android:id="@+id/fr_main_egress_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fr_main_egress"
+        app:layout_constraintTop_toTopOf="@+id/fr_main_egress"
+        tools:text="@string/fecha_de_ingreso" />
+
+    <TextView
+        android:id="@+id/fr_main_money"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/presupuesto"
+        android:textColor="@color/grey_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_main_egress" />
+
+    <TextView
+        android:id="@+id/fr_main_money_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
+        app:layout_constraintEnd_toStartOf="@+id/fr_main_money_img"
+        app:layout_constraintStart_toEndOf="@+id/fr_main_money"
+        app:layout_constraintTop_toTopOf="@+id/fr_main_money"
+        tools:text="@string/fecha_de_ingreso" />
+
+    <ImageView
+        android:id="@+id/fr_main_money_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_check_"
+        app:layout_constraintBottom_toBottomOf="@+id/fr_main_money"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fr_main_money" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

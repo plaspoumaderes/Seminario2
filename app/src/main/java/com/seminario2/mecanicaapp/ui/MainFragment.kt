@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : BaseFragment(R.layout.fragment_main) {
 
+    private var isAccept: Boolean = false
+
     companion object {
         const val CAR_KEY = "car-key-arguments"
         fun newInstance(vehicle: FixModelResponse): MainFragment {
@@ -30,7 +32,49 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
                 fr_main_car.setCar(it)
             }
             fr_main_status.setStatus(fix.fixStatusNumber)
+            setData(fix)
         }
+        addListener()
+    }
+
+    private fun addListener() {
+        fr_main_money_img.setOnClickListener {
+            isAccept = !isAccept
+            setImageCheck()
+            //Execute Service
+        }
+    }
+
+    private fun setData(fix: FixModelResponse?) {
+        fix?.let { f ->
+            f.fixIngress?.let { ingres ->
+                fr_main_ingress_value.text = "${ingres.date}/${ingres.month}"
+            }
+            f.fixEgress?.let { egres ->
+                fr_main_egress_value.text = "${egres.date}/${egres.month}"
+            }
+
+            isAccept = f.fixFinalPriceAccept
+            if (f.fixFinalPrice > 0) {
+                if (f.fixFinalPriceAccept) {
+                    fr_main_money_img.isEnabled = false
+                }
+                fr_main_money_value.text = "$ ${f.fixFinalPrice}"
+                setImageCheck()
+            } else {
+                fr_main_money_img.isEnabled = false
+            }
+        }
+    }
+
+    private fun setImageCheck() {
+        fr_main_money_img.setImageDrawable(
+            if (isAccept)
+                resources.getDrawable(R.drawable.ic_check_ok)
+            else resources.getDrawable(
+                R.drawable.ic_check_
+            )
+        )
     }
 
 }

@@ -15,7 +15,8 @@ data class FixModelResponse(
     var fixStatus: String? = null,
     var fixStatusNumber: Int,
     var garage: GarageModel?,
-    var vehicle: Vehicle?
+    var vehicle: Vehicle?,
+    var fixFinalPriceAccept: Boolean = false
 ) {
     fun getStatusName(): String {
         return when (fixStatusNumber) {

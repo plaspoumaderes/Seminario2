@@ -67,6 +67,9 @@
     <string name="patente">Patente</string>
     <string name="type">Tipo</string>
     <string name="color">Color</string>
+    <string name="fecha_de_ingreso">Fecha de Ingreso</string>
+    <string name="fecha_de_egress">Fecha de Salida</string>
+    <string name="presupuesto">Presupuesto</string>
 
     <string-array name="brand_array">
         <item></item>
