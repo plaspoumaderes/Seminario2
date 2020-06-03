@@ -24,6 +24,7 @@ data class FixModelResponse(
             3 -> "En reparacion"
             4 -> "Terminado"
             5 -> "Entregado"
+            6 -> "Calificado"
             else -> "Espera de recepcion"
         }
     }

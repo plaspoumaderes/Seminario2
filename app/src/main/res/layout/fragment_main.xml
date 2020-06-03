@@ -40,12 +40,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
+        android:text="@string/empty"
         android:textColor="@color/black_letters"
         android:textSize="@dimen/input_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fr_main_ingress"
-        app:layout_constraintTop_toTopOf="@+id/fr_main_ingress"
-        tools:text="@string/fecha_de_ingreso" />
+        app:layout_constraintTop_toTopOf="@+id/fr_main_ingress" />
 
     <TextView
         android:id="@+id/fr_main_egress"
@@ -64,12 +64,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
+        android:text="@string/empty"
         android:textColor="@color/black_letters"
         android:textSize="@dimen/input_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fr_main_egress"
-        app:layout_constraintTop_toTopOf="@+id/fr_main_egress"
-        tools:text="@string/fecha_de_ingreso" />
+        app:layout_constraintTop_toTopOf="@+id/fr_main_egress" />
 
     <TextView
         android:id="@+id/fr_main_money"
@@ -88,12 +88,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
+        android:text="@string/empty"
         android:textColor="@color/black_letters"
         android:textSize="@dimen/input_size"
         app:layout_constraintEnd_toStartOf="@+id/fr_main_money_img"
         app:layout_constraintStart_toEndOf="@+id/fr_main_money"
-        app:layout_constraintTop_toTopOf="@+id/fr_main_money"
-        tools:text="@string/fecha_de_ingreso" />
+        app:layout_constraintTop_toTopOf="@+id/fr_main_money" />
 
     <ImageView
         android:id="@+id/fr_main_money_img"
