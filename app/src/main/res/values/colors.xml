@@ -16,5 +16,6 @@
     <color name="success">#04A360</color>
     <color name="warning">#EFB50A</color>
     <color name="error">#B30300</color>
+    <color name="grey_chat">#F5F5F5</color>
 
 </resources>

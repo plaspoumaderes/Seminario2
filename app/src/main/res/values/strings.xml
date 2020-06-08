@@ -71,6 +71,7 @@
     <string name="fecha_de_egress">Fecha de Salida</string>
     <string name="presupuesto">Presupuesto</string>
     <string name="empty">-</string>
+    <string name="chatea_con_nosotros">Chatea con nosotros</string>
 
     <string-array name="brand_array">
         <item></item>

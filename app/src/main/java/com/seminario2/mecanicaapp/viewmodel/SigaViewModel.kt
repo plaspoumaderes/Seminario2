@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.seminario2.mecanicaapp.model.*
 import com.seminario2.mecanicaapp.services.APIClient
-import com.seminario2.mecanicaapp.services.APILoginInterface
 import com.seminario2.mecanicaapp.services.APISigaInterface
 import okhttp3.MediaType
 import okhttp3.ResponseBody
@@ -23,6 +22,8 @@ class SigaViewModel : ViewModel() {
     var postInsertFixMutable = MutableLiveData<Response<FixModelResponse>>()
     var getListFixMutable = MutableLiveData<Response<List<FixModelResponse>>>()
     var postComment = MutableLiveData<Response<Comment>>()
+    var postInsertChat = MutableLiveData<Response<Boolean>>()
+    var postChatFixedHistory = MutableLiveData<Response<List<ChatModel>?>>()
 
     fun getVehiclesbyUserName(loginResponse: LoginResponse) {
         var call = apiInterface?.getVehiclesbyUserName(loginResponse)
@@ -172,6 +173,52 @@ class SigaViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<Comment?>, t: Throwable) {
+                    responseError("No se encontraron reparaciones")
+                }
+            })
+        }
+    }
+
+    fun getChatsbyFixId(chatRequest: ChatRequest) {
+        var call = apiInterface?.getChatsbyFixId(chatRequest)
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<List<ChatModel>?> {
+                override fun onResponse(
+                    call: Call<List<ChatModel>?>,
+                    response: Response<List<ChatModel>?>
+                ) {
+                    response.body()?.let { body ->
+                        postChatFixedHistory.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron reparaciones")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<ChatModel>?>, t: Throwable) {
+                    responseError("No se encontraron reparaciones")
+                }
+            })
+        }
+    }
+
+    fun postInsertChat(chatModel: ChatModel) {
+        var call = apiInterface?.postInsertChat(chatModel)
+        call?.let { callResponse ->
+            callResponse.enqueue(object : Callback<Any> {
+                override fun onResponse(
+                    call: Call<Any>,
+                    response: Response<Any>
+                ) {
+                    response.body()?.let { body ->
+                        postInsertChat.value = Response.success(true)
+                        // postComment.value = Response.success(body)
+                    } ?: run {
+                        responseError("No se encontraron reparaciones")
+                        postInsertChat.value = Response.success(false)
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
                     responseError("No se encontraron reparaciones")
                 }
             })

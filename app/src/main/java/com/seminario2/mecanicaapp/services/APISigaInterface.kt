@@ -60,4 +60,16 @@ interface APISigaInterface {
         @Body comment: Comment,
         @HeaderMap headers: Map<String, String> = headersDefault
     ): Call<Comment?>?
+
+    @POST("apiSIGA/getChatsbyFixId")
+    fun getChatsbyFixId(
+        @Body chatRequest: ChatRequest,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<List<ChatModel>?>?
+
+    @POST("apiSIGA/insertChat")
+    fun postInsertChat(
+        @Body chatModel: ChatModel,
+        @HeaderMap headers: Map<String, String> = headersDefault
+    ): Call<Any>?
 }

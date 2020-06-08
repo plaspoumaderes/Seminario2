@@ -3,6 +3,7 @@ package com.seminario2.mecanicaapp.model
 import java.util.*
 
 data class FixModelResponse(
+    var _id: String,
     var vehicleId: List<String>,
     var userName: String,
     var garageId: String,
