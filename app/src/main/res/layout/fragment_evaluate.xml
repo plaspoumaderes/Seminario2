@@ -74,13 +74,24 @@
         app:layout_constraintTop_toTopOf="@+id/fr_ev_star_4" />
 
     <EditText
+        android:id="@+id/fr_ev_input_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/asunto"
+        app:layout_constraintEnd_toEndOf="@id/fr_ev_name"
+        app:layout_constraintStart_toStartOf="@+id/fr_ev_name"
+        app:layout_constraintTop_toBottomOf="@id/fr_ev_star_1" />
+
+    <EditText
         android:id="@+id/fr_ev_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:hint="Descripcion"
         app:layout_constraintEnd_toEndOf="@id/fr_ev_name"
         app:layout_constraintStart_toStartOf="@+id/fr_ev_name"
-        app:layout_constraintTop_toBottomOf="@id/fr_ev_star_1" />
+        app:layout_constraintTop_toBottomOf="@id/fr_ev_input_title" />
 
 
     <TextView

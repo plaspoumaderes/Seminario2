@@ -1,181 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/default_margin"
-    android:layout_marginBottom="@dimen/default_margin"
-    android:layout_marginStart="@dimen/default_margin"
-    android:layout_marginEnd="@dimen/default_margin"
-    android:elevation="@dimen/default_margin">
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="@dimen/default_margin">
 
-        <ImageView
-            android:id="@+id/v_car_marca_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/fiat" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/v_car_marca"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/marca"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/v_car_modelo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
+            <ImageView
+                android:id="@+id/v_car_marca_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/fiat" />
 
-        <TextView
-            android:id="@+id/v_car_marca_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_marca"
-            app:layout_constraintStart_toStartOf="@+id/v_car_marca"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_marca"
-            tools:text="Wolkswagen" />
+            <TextView
+                android:id="@+id/v_car_marca"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/marca"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/v_car_modelo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
 
-        <TextView
-            android:id="@+id/v_car_modelo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/modelo"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/v_car_año"
-            app:layout_constraintStart_toEndOf="@+id/v_car_marca"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
+            <TextView
+                android:id="@+id/v_car_marca_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_marca"
+                app:layout_constraintStart_toStartOf="@+id/v_car_marca"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_marca"
+                tools:text="Wolkswagen" />
 
-        <TextView
-            android:id="@+id/v_car_modelo_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_modelo"
-            app:layout_constraintStart_toStartOf="@+id/v_car_modelo"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_modelo"
-            tools:text="Gol" />
+            <TextView
+                android:id="@+id/v_car_modelo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/modelo"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/v_car_año"
+                app:layout_constraintStart_toEndOf="@+id/v_car_marca"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
 
-        <TextView
-            android:id="@+id/v_car_año"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/año"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/v_car_modelo"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
+            <TextView
+                android:id="@+id/v_car_modelo_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_modelo"
+                app:layout_constraintStart_toStartOf="@+id/v_car_modelo"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_modelo"
+                tools:text="Gol" />
 
-        <TextView
-            android:id="@+id/v_car_año_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_año"
-            app:layout_constraintStart_toStartOf="@+id/v_car_año"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_año"
-            tools:text="2009" />
+            <TextView
+                android:id="@+id/v_car_año"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/año"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/v_car_modelo"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_marca_img" />
 
-        <TextView
-            android:id="@+id/v_car_plate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="@string/patente"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/v_car_modelo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_marca_value" />
+            <TextView
+                android:id="@+id/v_car_año_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_año"
+                app:layout_constraintStart_toStartOf="@+id/v_car_año"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_año"
+                tools:text="2009" />
 
-        <TextView
-            android:id="@+id/v_car_plate_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_plate"
-            app:layout_constraintStart_toStartOf="@+id/v_car_plate"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_plate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
-            tools:text="Wolkswagen" />
+            <TextView
+                android:id="@+id/v_car_plate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/patente"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/v_car_modelo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_marca_value" />
 
-        <TextView
-            android:id="@+id/v_car_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/type"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/v_car_color"
-            app:layout_constraintStart_toEndOf="@+id/v_car_plate"
-            app:layout_constraintTop_toTopOf="@id/v_car_plate" />
+            <TextView
+                android:id="@+id/v_car_plate_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_plate"
+                app:layout_constraintStart_toStartOf="@+id/v_car_plate"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_plate"
+                tools:text="Wolkswagen" />
 
-        <TextView
-            android:id="@+id/v_car_type_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_type"
-            app:layout_constraintStart_toStartOf="@+id/v_car_type"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_type"
-            tools:text="Wolkswagen" />
+            <TextView
+                android:id="@+id/v_car_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/type"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/v_car_color"
+                app:layout_constraintStart_toEndOf="@+id/v_car_plate"
+                app:layout_constraintTop_toTopOf="@id/v_car_plate" />
 
-        <TextView
-            android:id="@+id/v_car_color"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/color"
-            android:textColor="@color/black_letters"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/v_car_type"
-            app:layout_constraintTop_toTopOf="@id/v_car_plate" />
+            <TextView
+                android:id="@+id/v_car_type_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_type"
+                app:layout_constraintStart_toStartOf="@+id/v_car_type"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_type"
+                tools:text="Wolkswagen" />
 
-        <TextView
-            android:id="@+id/v_car_color_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black_letters"
-            app:layout_constraintEnd_toEndOf="@+id/v_car_color"
-            app:layout_constraintStart_toStartOf="@+id/v_car_color"
-            app:layout_constraintTop_toBottomOf="@+id/v_car_color"
-            tools:text="Wolkswagen" />
+            <TextView
+                android:id="@+id/v_car_color"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/color"
+                android:textColor="@color/black_letters"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/v_car_type"
+                app:layout_constraintTop_toTopOf="@id/v_car_plate" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/v_car_color_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black_letters"
+                app:layout_constraintEnd_toEndOf="@+id/v_car_color"
+                app:layout_constraintStart_toStartOf="@+id/v_car_color"
+                app:layout_constraintTop_toBottomOf="@+id/v_car_color"
+                tools:text="Wolkswagen" />
 
-</androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

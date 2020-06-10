@@ -46,21 +46,21 @@ class StatusCarView : ConstraintLayout {
             repeatMode = Animation.REVERSE
         }
         when (status) {
-            0 -> {
+            1 -> {
                 v_status_pending.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-car-scan.json")
             }
-            1 -> {
+            2 -> {
                 v_status_scanner.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-car-scan.json")
                 v_status_lottie.repeatCount = ValueAnimator.INFINITE
             }
-            2 -> {
+            3 -> {
                 v_status_working.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-reparacion.json")
                 v_status_lottie.repeatCount = ValueAnimator.INFINITE
             }
-            3 -> {
+            4 -> {
                 v_status_done.startAnimation(alphaAnimation)
                 v_status_lottie.setAnimation("lottie-ok.json")
                 v_status_lottie.setPadding(16,16,16,16)

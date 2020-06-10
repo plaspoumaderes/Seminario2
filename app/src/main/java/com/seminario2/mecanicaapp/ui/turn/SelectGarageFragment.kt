@@ -57,6 +57,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
         val array = ArrayList<Int>().apply { this.add(fixModel.fixStatusNumber) }
         viewModel.getGaragesByCategory(GarageCategoryModel(array, loginResponse.address))
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configurateCalendar()
@@ -71,7 +72,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
                     garageList = mList
                     activity?.let { act ->
                         val data = ArrayList<String>()
-                        data.add("")
+                        data.add("Seleccionar Garage")
                         mList.forEach {
                             data.add("${it.garageName} - ${it.garagePhoneNumber ?: ""}")
                         }
@@ -140,7 +141,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
                 this.set(Calendar.YEAR, year)
                 this.set(Calendar.MONTH, monthOfYear)
                 this.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                fr_sl_gar_dia_value.text = "$dayOfMonth/$monthOfYear"
+                fr_sl_gar_dia_value.text = "$dayOfMonth/${monthOfYear + 1}"
                 fixModel.fixIngress = this.time
                 showHourSpinner()
             }

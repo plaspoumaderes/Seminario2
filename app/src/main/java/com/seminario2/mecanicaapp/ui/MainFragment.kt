@@ -56,10 +56,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private fun setData(fix: FixModelResponse?) {
         fix?.let { f ->
             f.fixIngress?.let { ingres ->
-                fr_main_ingress_value.text = "${ingres.date}/${ingres.month}"
+                fr_main_ingress_value.text = "${ingres.date}/${ingres.month + 1}"
             }
             f.fixEgress?.let { egres ->
-                fr_main_egress_value.text = "${egres.date}/${egres.month}"
+                fr_main_egress_value.text = "${egres.date}/${egres.month + 1}"
             }
 
             isAccept = f.fixFinalPriceAccept

@@ -89,6 +89,7 @@ class EvaluateFragment : BaseFragment(R.layout.fragment_evaluate) {
         }
         fr_ev_btn.setOnClickListener {
             fr_ev_loading.visible()
+            comment.title = fr_ev_input_title.text.toString()
             comment.body = fr_ev_input.text.toString()
             viewModel.postComment(comment)
             handler = Handler().apply {

@@ -16,7 +16,7 @@
     <string name="año">Año</string>
     <string name="modelo">Modelo</string>
     <string name="pendiente">Espera de recepcion</string>
-    <string name="revisando">En reparacion</string>
+    <string name="revisando">Recibido</string>
     <string name="working">En reparacion</string>
     <string name="done">Terminado</string>
     <string name="name">Nombre Completo</string>
@@ -43,7 +43,7 @@
     <string name="taller">Taller</string>
     <string name="horario">Horario</string>
     <string name="detalles_adicionales">Detalles adicionales</string>
-    <string name="dia">Día</string>
+    <string name="dia">Cargar Día</string>
     <string name="no_tiene_talleres_cerca">No tiene talleres cerca</string>
     <string name="inicio">Inicio</string>
     <string name="buscar">Buscar</string>
@@ -72,9 +72,10 @@
     <string name="presupuesto">Presupuesto</string>
     <string name="empty">-</string>
     <string name="chatea_con_nosotros">Chatea con nosotros</string>
+    <string name="asunto">Asunto</string>
 
     <string-array name="brand_array">
-        <item></item>
+        <item>Marca</item>
         <item>Volkswagen</item>
         <item>Renault</item>
         <item>Peugeot</item>
@@ -83,12 +84,13 @@
     </string-array>
 
     <string-array name="type_array">
+        <item>Tipo</item>
         <item>Auto</item>
         <item>Moto</item>
     </string-array>
 
     <string-array name="categories_array">
-        <item></item>
+        <item>Categoria</item>
         <item>Mecanica general</item>
         <item>Mecanica ligera</item>
         <item>Chapa y pintura</item>
