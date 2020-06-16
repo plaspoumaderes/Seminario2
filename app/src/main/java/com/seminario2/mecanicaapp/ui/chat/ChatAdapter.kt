@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.seminario2.mecanicaapp.R
@@ -28,6 +29,7 @@ class ChatAdapter(val fullName: String, val garageModel: GarageModel?) :
         val chatModel = mList[position]
         if (chatModel.fullName == fullName) {
             holder.name.gone()
+            val params = holder.cardView.layoutParams
         } else {
             holder.name.text = garageModel?.garageName
         }
@@ -35,6 +37,7 @@ class ChatAdapter(val fullName: String, val garageModel: GarageModel?) :
     }
 
     class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        val cardView: CardView = v.findViewById(R.id.item_chat)
         val name: TextView = v.findViewById(R.id.item_chat_name)
         val body: TextView = v.findViewById(R.id.item_chat_body)
     }

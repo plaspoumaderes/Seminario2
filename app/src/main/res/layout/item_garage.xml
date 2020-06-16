@@ -10,10 +10,75 @@
         android:id="@+id/item_garage_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:textColor="@color/black_letters"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Garage Pepito" />
+
+    <TextView
+        android:id="@+id/item_garage_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black_letters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1122334455" />
+
+    <TextView
+        android:id="@+id/item_garage_stars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black_letters"
+        app:layout_constraintBottom_toBottomOf="@id/item_garage_stars_img"
+        app:layout_constraintEnd_toStartOf="@+id/item_garage_stars_img"
+        app:layout_constraintTop_toTopOf="@id/item_garage_stars_img"
+        tools:text="4.32" />
+
+    <ImageView
+        android:id="@+id/item_garage_stars_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_star"
+        android:tint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/item_garage_email" />
+
+    <TextView
+        android:id="@+id/item_garage_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black_letters"
+        app:layout_constraintStart_toStartOf="@id/item_garage_name"
+        app:layout_constraintTop_toBottomOf="@id/item_garage_name"
+        tools:text="Calle Falsa 123" />
+
+    <TextView
+        android:id="@+id/item_garage_capacity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:text="@string/capacidad"
         android:textColor="@color/black_letters"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/item_garage_name"
+        app:layout_constraintTop_toBottomOf="@id/item_garage_address" />
+
+    <TextView
+        android:id="@+id/item_garage_capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:textColor="@color/black_letters"
+        app:layout_constraintStart_toEndOf="@id/item_garage_capacity_label"
+        app:layout_constraintTop_toTopOf="@+id/item_garage_capacity_label"
+        tools:text="3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

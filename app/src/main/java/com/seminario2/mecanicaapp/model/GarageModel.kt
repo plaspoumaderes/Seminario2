@@ -8,5 +8,7 @@ class GarageModel(
     val garageName: String,
     val garageAddress: String,
     val garagePhoneNumber: String?,
-    val garageVehicleCapacity: Int
+    val garageVehicleCapacity: Int,
+    val stars: Double,
+    val distance: String
 )

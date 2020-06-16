@@ -25,6 +25,7 @@ import com.seminario2.mecanicaapp.ui.turn.CreateTurnFragment
 import com.seminario2.mecanicaapp.ui.turn.ServicesAdapter
 import com.seminario2.mecanicaapp.ui.vehicles.adapter.VehicleAdapter
 import com.seminario2.mecanicaapp.ui.vehicles.VehiclesFragment
+import com.seminario2.mecanicaapp.utils.SharedPreference
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
@@ -182,26 +183,28 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
 
     fun loadServices() {
-        servicesAdapter = ServicesAdapter { ser ->
-            (activity as AppCompatActivity).replaceFragment(MainFragment.newInstance(ser))
-        }
-        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        fr_dash_services_recycler.isNestedScrollingEnabled = false
-        fr_dash_services_recycler.layoutManager = layoutManager
-        fr_dash_services_recycler.adapter = servicesAdapter
+        activity?.let { act ->
+            servicesAdapter = ServicesAdapter(act) { ser ->
+                (activity as AppCompatActivity).replaceFragment(MainFragment.newInstance(ser))
+            }
+            val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            fr_dash_services_recycler.isNestedScrollingEnabled = false
+            fr_dash_services_recycler.layoutManager = layoutManager
+            fr_dash_services_recycler.adapter = servicesAdapter
 
-
-        historyServices = ServicesAdapter { ser ->
-            if (ser.fixStatusNumber == 5) {
-                ser.garage?.let {
-                    (activity as AppCompatActivity).replaceFragment(EvaluateFragment.newInstance(it))
+            historyServices = ServicesAdapter(act) { ser ->
+                var isUsed = SharedPreference(act).getValueBoolien(ser._id, false)
+                if (ser.fixStatusNumber == 5 && !isUsed) {
+                    ser.garage?.let {
+                        (activity as AppCompatActivity).replaceFragment(EvaluateFragment.newInstance(it, ser._id))
+                    }
                 }
             }
+            val layoutManagerHistory = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            fr_dash_history_recycler.isNestedScrollingEnabled = false
+            fr_dash_history_recycler.layoutManager = layoutManagerHistory
+            fr_dash_history_recycler.adapter = historyServices
         }
-        val layoutManagerHistory = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        fr_dash_history_recycler.isNestedScrollingEnabled = false
-        fr_dash_history_recycler.layoutManager = layoutManagerHistory
-        fr_dash_history_recycler.adapter = historyServices
     }
 
 }

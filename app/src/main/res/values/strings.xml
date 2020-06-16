@@ -73,6 +73,7 @@
     <string name="empty">-</string>
     <string name="chatea_con_nosotros">Chatea con nosotros</string>
     <string name="asunto">Asunto</string>
+    <string name="capacidad">Capacidad de vehiculos </string>
 
     <string-array name="brand_array">
         <item>Marca</item>

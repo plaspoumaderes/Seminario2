@@ -1,5 +1,6 @@
 package com.seminario2.mecanicaapp.ui.turn
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +15,9 @@ import com.seminario2.mecanicaapp.commons.extension.visible
 import com.seminario2.mecanicaapp.model.FixModelResponse
 import com.seminario2.mecanicaapp.model.GarageModel
 import com.seminario2.mecanicaapp.model.Vehicle
+import com.seminario2.mecanicaapp.utils.SharedPreference
 
-class ServicesAdapter(val onClickAction: ((FixModelResponse) -> Unit)) :
+class ServicesAdapter(val mContext: Context, val onClickAction: ((FixModelResponse) -> Unit)) :
     RecyclerView.Adapter<ServicesAdapter.MyViewHolder>() {
 
     private var mList: ArrayList<FixModelResponse> = ArrayList()
@@ -60,7 +62,7 @@ class ServicesAdapter(val onClickAction: ((FixModelResponse) -> Unit)) :
         val address: TextView = v.findViewById(R.id.item_services_address)
         val car: TextView = v.findViewById(R.id.item_services_car)
         val carImage: ImageView = v.findViewById(R.id.item_services_car_image)
-        val notification: ImageView = v.findViewById(R.id.item_services_noti)
+        val notification: TextView = v.findViewById(R.id.item_services_noti)
         val separator: View = v.findViewById(R.id.item_services_sep)
     }
 
@@ -75,7 +77,8 @@ class ServicesAdapter(val onClickAction: ((FixModelResponse) -> Unit)) :
         } else {
             holder.separator.visible()
         }
-        if (service.fixStatusNumber == 5) {
+        var isUsed = SharedPreference(mContext).getValueBoolien(service._id, false)
+        if (service.fixStatusNumber == 5 && !isUsed) {
             holder.notification.visible()
         } else {
             holder.notification.gone()

@@ -34,9 +34,9 @@ class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fixModel = FixModel("", loginResponse.userName, "", "", "")
         addListener()
         addObservable()
-        fixModel = FixModel("", loginResponse.userName, "", "", "")
     }
 
     private fun addObservable() {

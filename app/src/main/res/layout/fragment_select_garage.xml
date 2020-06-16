@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fr_sl_gar_title" />
 
-    <Spinner
+    <TextView
         android:id="@+id/fr_sl_gar_spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,6 +37,7 @@
         android:layout_marginEnd="16dp"
         android:textColor="@color/black_letters"
         android:textSize="@dimen/input_size"
+        android:hint="Seleccionar Garage"
         app:layout_constraintBottom_toBottomOf="@id/fr_sl_gar_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fr_sl_gar_label"
@@ -59,13 +60,13 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/dia"
-        android:textColor="@color/black_letters"
-        android:textSize="@dimen/input_size"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:layout_marginTop="24dp"
+        android:textColor="@color/black_letters"
+        android:textSize="@dimen/input_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fr_sl_gar_address" />
 
@@ -120,10 +121,22 @@
         android:id="@+id/fr_sl_gar_tab"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabActive="1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fr_sl_garage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/fr_sel_gar_loading"

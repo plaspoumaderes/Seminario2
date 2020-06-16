@@ -4,28 +4,31 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.seminario2.mecanicaapp.R
 import com.seminario2.mecanicaapp.base.BaseFragment
+import com.seminario2.mecanicaapp.commons.extension.gone
 import com.seminario2.mecanicaapp.commons.extension.replaceFragment
 import com.seminario2.mecanicaapp.commons.extension.visible
+import com.seminario2.mecanicaapp.commons.listener.OnBackPressedListener
 import com.seminario2.mecanicaapp.model.FixModel
 import com.seminario2.mecanicaapp.model.GarageCategoryModel
 import com.seminario2.mecanicaapp.model.GarageModel
 import com.seminario2.mecanicaapp.ui.DashboardFragment
+import com.seminario2.mecanicaapp.ui.garage.GarageAdapter
 import kotlinx.android.synthetic.main.fragment_create_turn.*
 import kotlinx.android.synthetic.main.fragment_select_garage.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
+class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage), OnBackPressedListener {
 
+    private lateinit var garageAdapter: GarageAdapter
     private lateinit var fixModel: FixModel
     private var garageList: List<GarageModel> = ArrayList()
     private var garageSelected: GarageModel? = null
@@ -63,6 +66,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
         configurateCalendar()
         addListener()
         addObservable()
+        loadAdapter()
     }
 
     private fun addObservable() {
@@ -71,13 +75,7 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
                 response.body()?.let { mList ->
                     garageList = mList
                     activity?.let { act ->
-                        val data = ArrayList<String>()
-                        data.add("Seleccionar Garage")
-                        mList.forEach {
-                            data.add("${it.garageName} - ${it.garagePhoneNumber ?: ""}")
-                        }
-                        val adapter = ArrayAdapter(act, android.R.layout.simple_spinner_item, data)
-                        fr_sl_gar_spinner.adapter = adapter
+                        garageAdapter.updateItems(ArrayList(mList))
                     }
                 }
             })
@@ -105,27 +103,9 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
                 }
             }
         }
-        fr_sl_gar_spinner.onItemSelectedListener = object : OnItemSelectedListener {
-            override fun onItemSelected(
-                parentView: AdapterView<*>?,
-                selectedItemView: View,
-                position: Int,
-                id: Long
-            ) {
-                if (position > 0) {
-                    garageSelected = garageList[position - 1].apply {
-                        fixModel.garageId = this._id
-                        fr_sl_gar_address.text = this.garageAddress
-                        mapView.visible()
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parentView: AdapterView<*>?) {
-                // your code here
-            }
+        fr_sl_gar_spinner.setOnClickListener {
+            fr_sl_garage.visible()
         }
-
         fr_sl_gar_btn.setOnClickListener {
             viewModel.postInsertFix(fixModel)
         }
@@ -186,4 +166,24 @@ class SelectGarageFragment : BaseFragment(R.layout.fragment_select_garage) {
         return !incomplete
     }
 
+    private fun loadAdapter() {
+        garageAdapter = GarageAdapter { garageModel ->
+            fixModel.garageId = garageModel._id
+            fr_sl_gar_address.text = "${garageModel.distance} - ${garageModel.garageAddress}"
+            fr_sl_gar_spinner.text = garageModel.garageName
+            fr_sl_garage.gone()
+        }
+        val layoutManagerHistory = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        fr_sl_garage.isNestedScrollingEnabled = false
+        fr_sl_garage.layoutManager = layoutManagerHistory
+        fr_sl_garage.adapter = garageAdapter
+    }
+
+    override fun onBackPressed(): Boolean {
+        val useBackPress = fr_sl_garage.visibility == View.VISIBLE
+        if (useBackPress) {
+            fr_sl_garage.gone()
+        }
+        return useBackPress
+    }
 }
