@@ -19,9 +19,11 @@ import com.seminario2.mecanicaapp.model.Vehicle
 import com.seminario2.mecanicaapp.ui.DashboardFragment
 import kotlinx.android.synthetic.main.fragment_create_turn.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import java.lang.Exception
 import kotlin.collections.ArrayList
 
-class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
+class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn),
+    AdapterView.OnItemSelectedListener {
 
     private var vehicleList = ArrayList<Vehicle>()
     private lateinit var fixModel: FixModel
@@ -60,38 +62,26 @@ class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
     }
 
     private fun addListener() {
-        fr_cr_turn_vehiculos_input.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parentView: AdapterView<*>?,
-                selectedItemView: View,
-                position: Int,
-                id: Long
-            ) {
-                if (position > 0) {
-                    vehicleList[position - 1]._id?.let { id ->
-                        fixModel.vehicleId = id
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parentView: AdapterView<*>?) {
-                fixModel.vehicleId = ""
-            }
+        if (fr_cr_turn_vehiculos_input != null) {
+            fr_cr_turn_vehiculos_input.onItemSelectedListener = this
         }
-
         fr_cr_turn_btn.setOnClickListener {
             if (checkFields()) {
                 fixModel.fixType = fr_cr_turn_necesidad_input.selectedItem.toString().trim()
-                (activity as AppCompatActivity).replaceFragment(SelectGarageFragment.newInstance(Gson().toJson(fixModel)))
+                (activity as AppCompatActivity).replaceFragment(
+                    SelectGarageFragment.newInstance(
+                        Gson().toJson(fixModel)
+                    )
+                )
             }
         }
 
-        fr_cr_turn_km_input.addTextChangedListener(object:TextWatcher{
+        fr_cr_turn_km_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 fixModel.fixVehicleKm = p0.toString()
             }
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
         })
@@ -119,6 +109,23 @@ class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn) {
     private fun checkField(textInput: Spinner): Boolean {
         val incomplete = textInput.selectedItem.toString().trim().isEmpty()
         return !incomplete
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        fixModel.vehicleId = ""
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, position: Long) {
+        try {
+            if (position > 0) {
+                vehicleList[position.toInt() - 1]._id?.let { id ->
+                    fixModel.vehicleId = id
+                }
+            }
+        } catch (e: Exception) {
+
+        }
+
     }
 
 }
