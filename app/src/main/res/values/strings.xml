@@ -27,7 +27,7 @@
     <string name="address">Direccion</string>
     <string name="tipo">Tipo</string>
     <string name="chasis">Chasis</string>
-    <string name="engine">Engine</string>
+    <string name="engine">Motor</string>
     <string name="add_vehicle">Agregar Vehiculo</string>
     <string name="talleres">Talleres</string>
     <string name="logout">Logout</string>
