@@ -12,7 +12,6 @@ data class FixModelResponse(
     var fixIngress: Date? = null,
     var fixEgress: Date? = null,
     var fixBudget: Int = 0,
-    var fixFinalPrice: Int = 0,
     var fixStatus: String? = null,
     var fixStatusNumber: Int,
     var garage: GarageModel?,

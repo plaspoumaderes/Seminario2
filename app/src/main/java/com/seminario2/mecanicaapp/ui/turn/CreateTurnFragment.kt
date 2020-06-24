@@ -18,7 +18,6 @@ import com.seminario2.mecanicaapp.model.FixModel
 import com.seminario2.mecanicaapp.model.Vehicle
 import com.seminario2.mecanicaapp.ui.DashboardFragment
 import kotlinx.android.synthetic.main.fragment_create_turn.*
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import java.lang.Exception
 import kotlin.collections.ArrayList
 
@@ -37,8 +36,9 @@ class CreateTurnFragment : BaseFragment(R.layout.fragment_create_turn),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fixModel = FixModel("", loginResponse.userName, "", "", "")
-        fixModel.fullName = loginResponse.fullName
-        fixModel.address = loginResponse.address
+        fixModel.userFullName = loginResponse.fullName
+        fixModel.userAddress = loginResponse.address
+        fixModel.userCellphoneNumber = loginResponse.cellphoneNumber
         addListener()
         addObservable()
     }

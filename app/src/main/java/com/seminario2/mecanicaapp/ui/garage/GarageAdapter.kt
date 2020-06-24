@@ -27,7 +27,7 @@ class GarageAdapter(val onClickAction: ((GarageModel) -> Unit)) :
         holder.name.text = mList[position].garageName
         holder.address.text = "${mList[position].distance} - ${mList[position].garageAddress}"
         holder.capacity.text = mList[position].garageVehicleCapacity.toString()
-        holder.stars.text = mList[position].stars.round().toString()
+        holder.stars.text = "${mList[position].stars.toString()}"
         holder.email.text = mList[position].garageEmail
     }
 

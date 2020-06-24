@@ -63,11 +63,11 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             }
 
             isAccept = f.fixFinalPriceAccept
-            if (f.fixFinalPrice > 0) {
+            if (f.fixBudget > 0) {
                 if (f.fixFinalPriceAccept) {
                     fr_main_money_img.isEnabled = false
                 }
-                fr_main_money_value.text = "$ ${f.fixFinalPrice}"
+                fr_main_money_value.text = "$ ${f.fixBudget}"
                 setImageCheck()
             } else {
                 fr_main_money_img.isEnabled = false
